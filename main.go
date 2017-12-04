@@ -17,6 +17,8 @@ func main() {
 
 	//day3.TestFirst()
 	//day3.SolveFirst()
+	//day3.TestSecond()
+	//day3.SolveSecond()
 
 	day4.TestFirst()
 	day4.SolveFirst()
