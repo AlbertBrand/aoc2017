@@ -1,27 +1,15 @@
 package day12
 
 import (
-	"bufio"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
+
+	. "github.com/AlbertBrand/aoc2017/util"
 )
 
 type Programs map[int][]int
 type Seen map[int]bool
-
-func readTxt(filename string) []string {
-	file, _ := os.Open(filename)
-	defer file.Close()
-
-	lines := make([]string, 0)
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-	return lines
-}
 
 var re = regexp.MustCompile(`(\d+) <-> (.*)`)
 
@@ -72,16 +60,16 @@ func solver2(lines []string) {
 }
 
 func TestFirst() {
-	solver(readTxt("day12/test.txt"))
+	solver(ReadTxt("day12/test.txt"))
 }
 
 func SolveFirst() {
-	solver(readTxt("day12/input.txt"))
+	solver(ReadTxt("day12/input.txt"))
 }
 
 func TestSecond() {
-	solver2(readTxt("day12/test.txt"))
+	solver2(ReadTxt("day12/test.txt"))
 }
 func SolveSecond() {
-	solver2(readTxt("day12/input.txt"))
+	solver2(ReadTxt("day12/input.txt"))
 }

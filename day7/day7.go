@@ -1,12 +1,12 @@
 package day7
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
+
+	. "github.com/AlbertBrand/aoc2017/util"
 )
 
 type Node struct {
@@ -18,18 +18,6 @@ type Node struct {
 }
 
 var re = regexp.MustCompile(`(\w+) \((\d+)\)( -> (.*))?`)
-
-func readTxt(filename string) []string {
-	file, _ := os.Open(filename)
-	defer file.Close()
-
-	lines := make([]string, 0)
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-	return lines
-}
 
 func parseLine(line string) *Node {
 	result := re.FindStringSubmatch(line)
@@ -118,9 +106,9 @@ func TestFirst() {
 }
 
 func SolveFirst() {
-	solver(readTxt("day7/input.txt"))
+	solver(ReadTxt("day7/input.txt"))
 }
 
 func SolveSecond() {
-	solver2(readTxt("day7/input.txt"))
+	solver2(ReadTxt("day7/input.txt"))
 }

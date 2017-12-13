@@ -1,34 +1,11 @@
 package day4
 
 import (
-	"bufio"
-	"fmt"
-	"os"
 	"sort"
 	"strings"
+
+	. "github.com/AlbertBrand/aoc2017/util"
 )
-
-func readTxt(filename string) []string {
-	file, err := os.Open(filename)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return []string{}
-	}
-	defer file.Close()
-
-	lines := make([]string, 0)
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		fmt.Println("Error:", err)
-		return []string{}
-	}
-
-	return lines
-}
 
 func isValid(passphrase string) bool {
 	parts := strings.Split(passphrase, " ")
@@ -84,7 +61,7 @@ func TestFirst() {
 }
 
 func SolveFirst() {
-	println(solver(readTxt("day4/input.txt"), isValid))
+	println(solver(ReadTxt("day4/input.txt"), isValid))
 }
 
 func TestSecond() {
@@ -96,5 +73,5 @@ func TestSecond() {
 }
 
 func SolveSecond() {
-	println(solver(readTxt("day4/input.txt"), isValid2))
+	println(solver(ReadTxt("day4/input.txt"), isValid2))
 }
