@@ -38,7 +38,7 @@ func SolveFirst() {
 	solver(256, []int{225, 171, 131, 2, 35, 5, 0, 13, 1, 246, 54, 97, 255, 98, 254, 110})
 }
 
-func solver2(input string) {
+func KnotHash(input string) []int {
 	lengths := make([]int, len(input))
 	for k, v := range input {
 		lengths[k] = int(v)
@@ -61,25 +61,32 @@ func solver2(input string) {
 		}
 	}
 
-	hex := ""
+	out := make([]int, 0)
 	for i := 0; i < 16; i++ {
 		result := numbers[i*16]
 		for j := 1; j < 16; j++ {
 			result = result ^ numbers[i*16+j]
 		}
+		out = append(out, result)
+	}
+	return out
+}
 
-		hex += fmt.Sprintf("%02x", result)
+func printHex(hash []int) {
+	hex := ""
+	for _, i := range hash {
+		hex += fmt.Sprintf("%02x", i)
 	}
 	println(hex)
 }
 
 func TestSecond() {
-	solver2("")
-	solver2("AoC 2017")
-	solver2("1,2,3")
-	solver2("1,2,4")
+	printHex(KnotHash(""))
+	printHex(KnotHash("AoC 2017"))
+	printHex(KnotHash("1,2,3"))
+	printHex(KnotHash("1,2,4"))
 }
 
 func SolveSecond() {
-	solver2("225,171,131,2,35,5,0,13,1,246,54,97,255,98,254,110")
+	printHex(KnotHash("225,171,131,2,35,5,0,13,1,246,54,97,255,98,254,110"))
 }
