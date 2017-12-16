@@ -3,7 +3,9 @@ package util
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"os"
+	"strings"
 )
 
 func ReadTxt(filename string) []string {
@@ -26,5 +28,9 @@ func ReadTxt(filename string) []string {
 	}
 
 	return lines
+}
 
+func ReadAndSplit(filename string, sep string) []string {
+	b, _ := ioutil.ReadFile(filename)
+	return strings.Split(string(b), sep)
 }

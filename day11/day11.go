@@ -1,8 +1,7 @@
 package day11
 
 import (
-	"io/ioutil"
-	"strings"
+	"github.com/AlbertBrand/aoc2017/util"
 )
 
 type Vector struct {
@@ -58,11 +57,6 @@ func Test() {
 	solver([]string{"se", "sw", "se", "sw", "sw"})
 }
 
-func readFile(filename string) []string {
-	b, _ := ioutil.ReadFile(filename)
-	return strings.Split(string(b), ",")
-}
-
 func Solve() {
-	solver(readFile("day11/input.txt"))
+	solver(util.ReadAndSplit("day11/input.txt", ","))
 }
