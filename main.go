@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/AlbertBrand/aoc2017/day16"
+	"github.com/AlbertBrand/aoc2017/day17"
 )
 
 func main() {
@@ -71,7 +71,11 @@ func main() {
 	//day15.TestSecond()
 	//day15.SolveSecond()
 
-	day16.TestFirst()
-	day16.SolveFirst()
-	day16.SolveSecond()
+	//day16.TestFirst()
+	//day16.SolveFirst()
+	//day16.SolveSecond()
+
+	day17.TestFirst()
+	day17.SolveFirst()
+	day17.SolveSecond()
 }
